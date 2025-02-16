@@ -76,3 +76,17 @@
 
         rejectBtn.addEventListener('click', () => {
             scale *= 0.7;
+            rejectBtn.style.transform = `scale(${scale})`;
+            
+            if (scale < 0.1) {
+                rejectBtn.style.display = 'none';
+            }
+        });
+
+        forgiveBtn.addEventListener('click', () => {
+            buttons.style.display = 'none';
+            message.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
