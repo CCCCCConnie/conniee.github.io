@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: pink;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+            justify-content: center;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            background-color: white;
+            box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #rejectBtn {
+            background-color: #ff4444;
+            color: white;
+        }
+
+        #forgiveBtn {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        #message {
+            font-size: 48px;
+            color: #ff69b4;
+            display: none;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>你能原谅我吗？</h1>
+        <div class="buttons">
+            <button id="forgiveBtn">原谅你</button>
+            <button id="rejectBtn">不要</button>
+        </div>
+        <div id="message">对不起 学长 我错了QAQ 喜欢你</div>
+    </div>
+
+    <script>
+        let scale = 1;
+        const rejectBtn = document.getElementById('rejectBtn');
+        const forgiveBtn = document.getElementById('forgiveBtn');
+        const message = document.getElementById('message');
+        const buttons = document.querySelector('.buttons');
+
+        rejectBtn.addEventListener('click', () => {
+            scale *= 0.7;
+            rejectBtn.style.transform = `scale(${scale})`;
+            
+            if (scale < 0.1) {
+                rejectBtn.style.display = 'none';
+            }
+        });
+
+        forgiveBtn.addEventListener('click', () => {
+            buttons.style.display = 'none';
+            message.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
